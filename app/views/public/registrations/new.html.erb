@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h5 class="pl-3 pr-4 my-5">
+          新規会員登録
+        </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto col-12 col-md-8 col-lg-6 pb-3">
+      <%= form_with model: @user, url: user_registration_path do |f| %>
+        <div class="form-group">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email,autocomplete: "email", :placeholder=>"sample@example.com",class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+            <span>(<%= @minimum_password_length %> 文字以上)</span>
+            <% end %>
+          <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :パスワード（確認用） %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "新規会員登録",class: "btn btn-primary mt-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto col-12 col-md-8 col-lg-6 pb-5">
+      <p>登録済みの方は<%= link_to"こちら",new_user_session_path %></p>
+    </div>
+  </div>
+</div>
