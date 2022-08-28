@@ -11,6 +11,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 scope module: :public do
   root to: 'homes#top'
+  get 'about' => 'homes#about'
   resources :primes, only:[:new, :create]
   get 'primes/:id/answers' => 'primes#answers', as: :answer
 end
