@@ -15,5 +15,9 @@ scope module: :public do
   resources :primes, only:[:new, :create]
   get 'primes/:id/answers' => 'primes#answers', as: :answer
 end
+
+namespace :admin do
+  resources :blogs, only:[:index, :show, :create, :new]
+end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
