@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+      <h3 class="m-3 text-center">投稿一覧</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto col-12 col-md-10 col-lg-10">
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= link_to blog.title,admin_blog_path(blog.id) %></td>
+              <td><%= blog.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
